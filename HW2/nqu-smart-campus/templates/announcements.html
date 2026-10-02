@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Announcements | NQU Smart Campus{% endblock %}
+{% block heading %}Announcements{% endblock %}
+{% block content %}
+<section class="panel">
+{% for a in announcements %}
+<article class="announcement-card">
+  <time>{{ a.published_at }}</time>
+  <h3>{{ a.title }}</h3>
+  <p>{{ a.content }}</p>
+</article>
+{% endfor %}
+</section>
+{% endblock %}

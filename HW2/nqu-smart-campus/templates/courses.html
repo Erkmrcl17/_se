@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Courses | NQU Smart Campus{% endblock %}
+{% block heading %}Course Schedule{% endblock %}
+{% block content %}
+<section class="panel table-wrap">
+<table>
+<thead><tr><th>Code</th><th>Course</th><th>Teacher</th><th>Credits</th><th>Day</th><th>Time</th><th>Room</th></tr></thead>
+<tbody>
+{% set days = {1:'Monday',2:'Tuesday',3:'Wednesday',4:'Thursday',5:'Friday',6:'Saturday',7:'Sunday'} %}
+{% for c in courses %}
+<tr><td>{{ c.code }}</td><td>{{ c.name }}</td><td>{{ c.teacher }}</td><td>{{ c.credits }}</td><td>{{ days[c.weekday] }}</td><td>{{ c.start_time }}–{{ c.end_time }}</td><td>{{ c.classroom }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+</section>
+{% endblock %}
