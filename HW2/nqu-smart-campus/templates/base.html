@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}NQU Smart Campus{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">NQU</div>
+      <div><strong>Smart Campus</strong><span>Student System</span></div>
+    </div>
+    <nav>
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('profile') }}">Profile</a>
+      <a href="{{ url_for('courses') }}">Courses</a>
+      <a href="{{ url_for('grades') }}">Grades</a>
+      <a href="{{ url_for('attendance') }}">Attendance</a>
+      <a href="{{ url_for('announcements') }}">Announcements</a>
+      <a class="ai-link" href="{{ url_for('assistant') }}">✦ AI Assistant</a>
+    </nav>
+    <a class="logout" href="{{ url_for('logout') }}">Log out</a>
+  </aside>
+  <main class="content">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">National Quemoy University</span>
+        <h1>{% block heading %}Student System{% endblock %}</h1>
+      </div>
+      <div class="student-chip">{{ student.name }}</div>
+    </header>
+    {% block content %}{% endblock %}
+  </main>
+</div>
+</body>
+</html>

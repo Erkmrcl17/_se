@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Profile | NQU Smart Campus{% endblock %}
+{% block heading %}Student Profile{% endblock %}
+{% block content %}
+<section class="panel profile-grid">
+  <div><span>Student ID</span><strong>{{ student.student_id }}</strong></div>
+  <div><span>Name</span><strong>{{ student.name }}</strong></div>
+  <div><span>Department</span><strong>{{ student.department }}</strong></div>
+  <div><span>Year</span><strong>{{ student.grade }}</strong></div>
+  <div><span>Email</span><strong>{{ student.email }}</strong></div>
+</section>
+{% endblock %}
