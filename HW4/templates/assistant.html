@@ -1,1 +1,0 @@
-{% extends "base.html" %}{% block content %}<div class="card"><h1>AI Assistant</h1><div id="chat"><p>Ask me about your academic information.</p></div><div class="row"><input id="msg" placeholder="e.g. Show my grades"><button onclick="send()">Send</button></div></div><script src="{{url_for('static',filename='js/assistant.js')}}"></script>{% endblock %}
