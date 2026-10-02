@@ -1,1 +1,0 @@
-async function send(){const i=document.getElementById("msg"),c=document.getElementById("chat");if(!i.value.trim())return;const m=i.value;c.innerHTML+="\n\nYou: "+m;i.value="";const r=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:m})});const d=await r.json();c.innerHTML+="\n\nAssistant: "+d.answer;}
