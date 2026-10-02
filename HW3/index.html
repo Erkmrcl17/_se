@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResumeAI｜AI 履歷健檢系統</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#">Resume<span>AI</span></a>
+  <nav><a href="#checker">履歷健檢</a><a href="#features">功能</a><a href="#about">專案價值</a></nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="badge">AI RESUME CHECKER</span>
+      <h1>讓履歷不只是完成，<br><span>而是更有競爭力。</span></h1>
+      <p>貼上履歷內容與目標職缺，系統將從完整度、技能關鍵字、內容表達與職缺匹配度進行分析，提供具體改善建議。</p>
+      <a class="primary-btn" href="#checker">開始免費健檢</a>
+    </div>
+    <div class="score-card">
+      <div class="mini-label">履歷健康分數</div>
+      <div class="ring"><strong>86</strong><small>/100</small></div>
+      <div class="mini-grid"><div><b>92%</b><span>完整度</span></div><div><b>81%</b><span>關鍵字</span></div><div><b>84%</b><span>匹配度</span></div></div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="section-title"><span>CORE FEATURES</span><h2>履歷健檢的四個重點</h2></div>
+    <div class="features">
+      <article><div class="icon">01</div><h3>履歷完整度</h3><p>檢查學歷、技能、專案、工作經驗與自我介紹等重要內容。</p></article>
+      <article><div class="icon">02</div><h3>關鍵字分析</h3><p>辨識履歷中的技術與能力關鍵字，找出可以補強的內容。</p></article>
+      <article><div class="icon">03</div><h3>職缺匹配</h3><p>比較履歷與職缺描述，計算技能與需求的文字匹配程度。</p></article>
+      <article><div class="icon">04</div><h3>改善建議</h3><p>依分析結果產生可執行的修改方向，協助提升履歷品質。</p></article>
+    </div>
+  </section>
+
+  <section id="checker" class="checker-section">
+    <div class="section-title"><span>TRY IT NOW</span><h2>開始 AI 履歷健檢</h2><p>此課堂 Demo 在瀏覽器本機分析，不會上傳履歷資料。</p></div>
+    <div class="checker-grid">
+      <div class="input-card">
+        <label for="resume">履歷內容</label>
+        <textarea id="resume" placeholder="請貼上你的履歷內容，例如：學歷、工作經驗、專案、技能、自我介紹……"></textarea>
+        <label for="job">目標職缺描述 <span>（選填）</span></label>
+        <textarea id="job" class="small" placeholder="例如：徵求前端工程師，熟悉 JavaScript、React、Git、REST API……"></textarea>
+        <button id="analyzeBtn" class="primary-btn full">開始分析</button>
+        <button id="demoBtn" class="secondary-btn">載入範例資料</button>
+      </div>
+
+      <div id="emptyState" class="result-card empty">
+        <div class="empty-icon">AI</div><h3>等待履歷分析</h3><p>輸入履歷後點擊「開始分析」，結果會顯示在這裡。</p>
+      </div>
+
+      <div id="results" class="result-card hidden">
+        <div class="result-head"><div><span class="mini-label">RESUME SCORE</span><h3>履歷健檢結果</h3></div><div class="big-score"><b id="score">0</b><span>/100</span></div></div>
+        <div class="progress-list">
+          <div><p><span>內容完整度</span><b id="completeText">0%</b></p><div class="bar"><i id="completeBar"></i></div></div>
+          <div><p><span>技能關鍵字</span><b id="keywordText">0%</b></p><div class="bar"><i id="keywordBar"></i></div></div>
+          <div><p><span>職缺匹配度</span><b id="matchText">0%</b></p><div class="bar"><i id="matchBar"></i></div></div>
+        </div>
+        <div class="analysis-block"><h4>偵測到的技能</h4><div id="skills" class="tags"></div></div>
+        <div class="analysis-block"><h4>改善建議</h4><ul id="suggestions"></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="value-section">
+    <div><span class="badge light">PROJECT VALUE</span><h2>這個專案有什麼價值？</h2></div>
+    <div class="value-grid"><article><h3>使用價值</h3><p>求職者常不知道履歷是否完整，也不容易快速判斷履歷與職缺需求的差距。本系統將檢查流程自動化，讓使用者在投遞前先自行健檢。</p></article><article><h3>商業價值</h3><p>未來可發展 Freemium 模式：免費提供基本評分，付費提供 AI 改寫、多版本履歷、職缺批次匹配、PDF 報告及求職追蹤等功能。</p></article></div>
+  </section>
+</main>
+<footer>ResumeAI · AI 履歷健檢系統 · 習題 3 專案</footer>
+<script src="js/app.js"></script>
+</body>
+</html>
