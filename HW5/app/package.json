@@ -1,0 +1,14 @@
+
+{
+  "name": "se-docker-project",
+  "version": "1.0.0",
+  "description": "Software Engineering Docker project with Node.js and PostgreSQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  }
+}

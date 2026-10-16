@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW5 Docker Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div>
+            <p class="eyebrow">SOFTWARE ENGINEERING · HW5</p>
+            <h1>Docker Dashboard</h1>
+            <p class="subtitle">Application and database service monitoring</p>
+        </div>
+        <button id="refreshButton">Refresh Data</button>
+    </header>
+
+    <main class="container">
+        <section class="status-grid">
+            <article class="status-card">
+                <span class="status-icon">01</span>
+                <h2>Frontend</h2>
+                <p>Nginx Web Server</p>
+                <span class="status-badge online">Online</span>
+            </article>
+
+            <article class="status-card">
+                <span class="status-icon">02</span>
+                <h2>Backend API</h2>
+                <p>Node.js + Express</p>
+                <span id="apiStatus" class="status-badge checking">Checking...</span>
+            </article>
+
+            <article class="status-card">
+                <span class="status-icon">03</span>
+                <h2>Database</h2>
+                <p>PostgreSQL</p>
+                <span id="dbStatus" class="status-badge checking">Checking...</span>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Database Messages</h2>
+                    <p>Data retrieved through the Node.js API</p>
+                </div>
+                <span id="messageCount" class="count">0 records</span>
+            </div>
+
+            <div id="messages" class="messages">
+                <p>Loading data...</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>HW5 · Docker Compose · Node.js · PostgreSQL · Nginx</p>
+            <p id="lastUpdated">Not yet updated</p>
+        </footer>
+    </main>
+</body>
+
+</html>
