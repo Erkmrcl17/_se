@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f4f6f8;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      gap: 8px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+    }
+
+    button {
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Todo List</h1>
+
+  <form id="todo-form">
+    <input id="todo-input" placeholder="Enter a task" required>
+    <button type="submit">Add Todo</button>
+  </form>
+
+  <ul id="todo-list"></ul>
+
+  <script>
+    const form = document.getElementById('todo-form');
+    const input = document.getElementById('todo-input');
+    const list = document.getElementById('todo-list');
+
+    async function loadTodos() {
+      const response = await fetch('/api/todos');
+      const todos = await response.json();
+
+      list.replaceChildren();
+
+      todos.forEach(todo => {
+        const li = document.createElement('li');
+
+        const title = document.createElement('span');
+        title.textContent = todo.title;
+
+        if (todo.completed) {
+          title.classList.add('completed');
+        }
+
+        const completeButton = document.createElement('button');
+        completeButton.textContent = todo.completed ? 'Undo' : 'Complete';
+
+        completeButton.addEventListener('click', async () => {
+          await fetch(`/api/todos/${todo.id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ completed: !todo.completed })
+          });
+          loadTodos();
+        });
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+
+        deleteButton.addEventListener('click', async () => {
+          await fetch(`/api/todos/${todo.id}`, {
+            method: 'DELETE'
+          });
+          loadTodos();
+        });
+
+        li.append(title, completeButton, deleteButton);
+        list.appendChild(li);
+      });
+    }
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+
+      const title = input.value.trim();
+      if (!title) return;
+
+      const response = await fetch('/api/todos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title })
+      });
+
+      if (response.ok) {
+        input.value = '';
+        await loadTodos();
+      }
+    });
+
+    loadTodos();
+  </script>
+</body>
+</html>
