@@ -1,0 +1,8 @@
+{
+  "name": "workmate-multilingual-work-manager",
+  "version": "1.0.0",
+  "description": "Bilingual employee, task and document deadline management MVP",
+  "main": "server.js",
+  "scripts": {"start": "node server.js", "dev": "node --watch server.js"},
+  "dependencies": {"better-sqlite3": "^11.8.1", "express": "^4.21.2"}
+}
