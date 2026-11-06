@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# Cloudflare local development files
+.wrangler/
+
+# Logs
+npm-debug.log*
