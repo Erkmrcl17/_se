@@ -1,0 +1,22 @@
+
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "studyflow-cloudflare",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-06",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "studyflow-db",
+      "database_id": "d89c8d16-913b-48ae-8ec4-d7107635551f",
+      "remote": true
+    }
+  ]
+}

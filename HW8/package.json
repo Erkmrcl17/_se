@@ -1,0 +1,16 @@
+{
+  "name": "studyflow-cloudflare",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create studyflow-db",
+    "db:init:local": "wrangler d1 execute studyflow-db --local --file=./schema.sql",
+    "db:init:remote": "wrangler d1 execute studyflow-db --remote --file=./schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.45.0"
+  }
+}
